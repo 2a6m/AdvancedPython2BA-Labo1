@@ -3,19 +3,33 @@
 # Version: February 2, 2016
 
 def fact(n):
-    assert (int(n))
-    assert (n >= 0)
-    f = 1
-    while n > 0:
-        f *= n
-        n -= 1
-    return f
+    # Python program to find the factorial of a number provided by the user.
+
+    # change the value for a different result
+
+    # uncomment to take input from the user
+    # num = int(input("Enter a number: "))
+
+    factorial = 1
+
+    # check if the number is negative, positive or zero
+    if num < 0:
+        print("Sorry, factorial does not exist for negative numbers")
+    elif num == 0:
+        print("The factorial of 0 is 1")
+    else:
+        for i in range(1, num + 1):
+            factorial = factorial * i
+        print("The factorial of", num, "is", factorial)
 
 
 def roots(a, b, c):
     assert (int(a), int(b), int(c))
     delta = b**2 - 4*a*c
-    r = (-b + delta**(1/2)) / a
+    if a == 0:
+         r = (-b + delta**(1/2))
+        return r
+    r = (-b + delta**(1/2) / a)
     return r
 
 def integrate(function, lower, upper):
