@@ -27,7 +27,7 @@ def roots(a, b, c):
     assert (int(a), int(b), int(c))
     delta = b**2 - 4*a*c
     if a == 0:
-         r = (-b + delta**(1/2))
+        r = (-b + delta**(1/2))
         return r
     r = (-b + delta**(1/2) / a)
     return r
