@@ -20,17 +20,23 @@ def roots(a, b, c):
     Post: Returns a tuple with zero, one or two elements corresponding
           to the roots of the ax^2 + bx + c polynomial.
     """
-    assert (int(a))
-    assert (int(b))
-    assert (int(c))
-    delta = b ** 2 - 4 * a * c
+    if a == 0 and b == 0:
+        return None
+
     if a == 0:
-        rp = (-b + m.sqrt(delta))
-        rn = (-b - m.sqrt(delta))
-        return rp, rn
-    rp = (-b + m.sqrt(delta) / a)
-    rn = (-b - m.sqrt(delta) / a)
-    return rp, rn
+        RS = -c / b
+        return (RS)
+
+    D = b ** 2 - 4 * a * c
+    if D < 0:
+        return None
+    elif D == 0:
+        R0 = (-b) / (2 * a)
+        return R0
+    else:
+        R1 = (-b - m.sqrt(D)) / (2 * a)
+        R2 = (-b + m.sqrt(D)) / (2 * a)
+        return (R1, R2)
 
 def integrate(function, lower, upper):
     """Approximates the integral of a fonction between two bounds
@@ -41,7 +47,15 @@ def integrate(function, lower, upper):
     Post: Returns an approximation of the integral from 'lower' to 'upper'
           of the specified 'function'.
     """
-    return 1
+    steps = 5000
+    h = (upper - lower) / steps
+    x = lower
+
+    integral = 0
+    while x < upper:
+        integral += eval(function) * h
+        x += h
+    return integral
 
 if __name__ == '__main__':
     print(fact(5))
