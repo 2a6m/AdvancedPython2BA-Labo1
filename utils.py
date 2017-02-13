@@ -9,7 +9,7 @@ def fact(n):
     while n > 0:
         f *= n
         n -= 1
-        return f
+    return f
 
 
 def roots(a, b, c):
