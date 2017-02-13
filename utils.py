@@ -21,7 +21,7 @@ def roots(a, b, c):
           to the roots of the ax^2 + bx + c polynomial.
     """
     if a == 0 and b == 0:
-        return None
+        return (0)
 
     if a == 0:
         RS = -c / b
@@ -32,7 +32,7 @@ def roots(a, b, c):
         return None
     elif D == 0:
         R0 = (-b) / (2 * a)
-        return R0
+        return (R0, R0)
     else:
         R1 = (-b - m.sqrt(D)) / (2 * a)
         R2 = (-b + m.sqrt(D)) / (2 * a)
@@ -55,7 +55,7 @@ def integrate(function, lower, upper):
     while x < upper:
         integral += eval(function) * h
         x += h
-    return integral
+    return float("{0:.2f}".format(integral))
 
 if __name__ == '__main__':
     print(fact(5))
